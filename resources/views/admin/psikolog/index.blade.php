@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Manage Dokter')
+@section('title', 'Manage Psikolog')
 
 @section('content')
     <div class="container mt-4">
-        <h1 class="mb-4">Manage Dokter</h1>
+        <h1 class="mb-4">Manage Psikolog</h1>
 
                 <!-- Menampilkan Pesan Sukses -->
             @if (session('success'))
@@ -22,9 +22,9 @@
             </div>
         @endif
 
-        <!-- Button Tambah Dokter -->
+        <!-- Button Tambah psikolog -->
         <div class="mb-3">
-            <a href="{{ route('admin.create-doctor') }}" class="btn btn-primary">Tambah Dokter</a>
+            <a href="{{ route('admin.create-psikolog') }}" class="btn btn-primary">Tambah Psikolog</a>
         </div>
 
         <!-- Responsive Table -->
@@ -33,7 +33,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>Dokter</th>
+                        <th>Psikolog</th>
                         <th>Gambar</th>
                         <th>Lulusan</th>
                         <th>Tahun Lulus</th>
@@ -42,19 +42,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($data as $dokter)
+                    @foreach($data as $psikolog)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $dokter->dokter }}</td>
+                        <td>{{ $psikolog->psikolog }}</td>
                         <td>
-                            <img src="{{ asset('storage/' . $dokter->gambar) }}" alt="Dokter" class="img-thumbnail" style="width: 100px;">
+                            <img src="{{ asset('storage/' . $psikolog->gambar) }}" alt="psikolog" class="img-thumbnail" style="width: 100px;">
                         </td>
-                        <td>{{ $dokter->lulusan }}</td>
-                        <td>{{ $dokter->tahun_lulus }}</td>
-                        <td>{{ $dokter->spesialis->spesialis }}</td>
+                        <td>{{ $psikolog->lulusan }}</td>
+                        <td>{{ $psikolog->tahun_lulus }}</td>
+                        <td>{{ $psikolog->spesialis->spesialis }}</td>
                         <td>
-                            <a href="{{ route('admin.edit-doctor', $dokter->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="/admin/delete-doctor/{{ $dokter->id }}" method="POST">
+                            <a href="{{ route('admin.edit-psikolog', $psikolog->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="/admin/delete-psikolog/{{ $psikolog->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>

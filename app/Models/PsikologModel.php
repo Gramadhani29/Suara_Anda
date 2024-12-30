@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class DoktorModel extends Model
+class PsikologModel extends Model
 {
-    protected $table = 'dokter';
+    protected $table = 'psikolog';
 
     protected $fillable = [
-        'dokter', 'gambar', 'lulusan', 'tahun_lulus', 'spesialis_id'
+        'psikolog', 'gambar', 'lulusan', 'tahun_lulus', 'spesialis_id'
     ];
 
     public $timestamps = true;
@@ -19,5 +19,4 @@ class DoktorModel extends Model
     {
         return $this->hasOne(SpesialisModel::class, 'id', 'spesialis_id');
     }
-
 }

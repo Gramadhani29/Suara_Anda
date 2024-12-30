@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dokter_id')->constrained('dokter')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('psikolog_id')->constrained('psikolog')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('hari_id')->constrained('hari')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('jam_id')->constrained('jam')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

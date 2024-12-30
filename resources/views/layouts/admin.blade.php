@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.manage-doctor') }}" >Manage Doktor</a>
+                        <a class="nav-link" href="{{ route('admin.manage-psikolog') }}" >Manage Psikolog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}" >Logout</a>

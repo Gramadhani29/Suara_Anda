@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoktorController;
+use App\Http\Controllers\PsikologController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -17,9 +18,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/admin/dashboard', [AuthController::class, 'adminDashboard'])->name('admin.dashboard');
 Route::get('/user/dashboard', [AuthController::class, 'userDashboard'])->name('user.dashboard');
 
-Route::get('/admin/manage-doctor',[DoktorController::class,'index'])->name('admin.manage-doctor');
-Route::get('/admin/form-doctor',[DoktorController::class,'create'])->name('admin.create-doctor');
-Route::post('/admin/store-doctor',[DoktorController::class,'store'])->name('admin.store-doctor');
-Route::delete('/admin/delete-doctor/{id}',[DoktorController::class,'destroy'])->name('admin.delete-doctor');
-Route::get('/admin/edit-doctor/{id}',[DoktorController::class,'edit'])->name('admin.edit-doctor');
-Route::put('/admin/update-doctor/{id}',[DoktorController::class,'update'])->name('admin.update-doctor');
+Route::get('/admin/manage-psikolog',[PsikologController::class,'index'])->name('admin.manage-psikolog');
+Route::get('/admin/form-psikolog',[PsikologController::class,'create'])->name('admin.create-psikolog');
+Route::post('/admin/store-psikolog',[PsikologController::class,'store'])->name('admin.store-psikolog');
+Route::delete('/admin/delete-psikolog/{id}',[PsikologController::class,'destroy'])->name('admin.delete-psikolog');
+Route::get('/admin/edit-psikolog/{id}',[PsikologController::class,'edit'])->name('admin.edit-psikolog');
+Route::put('/admin/update-psikolog/{id}',[PsikologController::class,'update'])->name('admin.update-psikolog');

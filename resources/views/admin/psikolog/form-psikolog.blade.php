@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Tambah Dokter')
+@section('title', 'Tambah psikolog')
 
 @section('content')
     <div class="container mt-5">
@@ -8,7 +8,7 @@
             <div class="col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white text-center">
-                        <h4 class="mb-0">Tambah Dokter</h4>
+                        <h4 class="mb-0">Tambah Psikolog</h4>
                     </div>
                     @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,7 +25,7 @@
                     </div>
                 @endif
                     <div class="card-body">
-                        <form action="{{$id ? route('admin.update-doctor', $id) : route('admin.store-doctor') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{$id ? route('admin.update-psikolog', $id) : route('admin.store-psikolog') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             @if($id)
@@ -33,13 +33,13 @@
                             @else
                                 @method('POST')
                             @endif
-                            <!-- Nama Dokter -->
+                            <!-- Nama psikolog -->
                             <div class="mb-4">
-                                <label for="dokter" class="form-label">Nama Dokter <span class="text-danger">*</span></label>
+                                <label for="psikolog" class="form-label">Nama Psikolog <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-person-fill"></i></span>
-                                    <input type="text" value="{{ $id ? $dokter->dokter : old('dokter')}}" class="form-control" id="dokter" name="dokter" placeholder="Contoh: dr. John Doe" required>
-                                    @error('dokter')
+                                    <input type="text" value="{{ $id ? $psikolog->psikolog : old('psikolog')}}" class="form-control" id="psikolog" name="psikolog" placeholder="Contoh: dr. John Doe" required>
+                                    @error('psikolog')
                                     <div class="text-danger mt-1">
                                         <small>{{ $message }}</small>
                                     </div>
@@ -49,10 +49,10 @@
 
                             <!-- Gambar -->
                             <div class="mb-4">
-                                <label for="gambar" class="form-label">Foto Dokter <span class="text-danger">{{ $id ? '' : '*' }}</span></label>
+                                <label for="gambar" class="form-label">Foto Psikolog <span class="text-danger">{{ $id ? '' : '*' }}</span></label>
                                 <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" {{ $id ? '' : 'required'}}>
                                 @if ($id)
-                                    <input type="hidden" name="old_gambar" value="{{ $dokter->gambar }}">
+                                    <input type="hidden" name="old_gambar" value="{{ $psikolog->gambar }}">
                                 @endif
                                 <small class="text-muted">Unggah file gambar dalam format JPG atau PNG (maksimal 2MB).</small>
                                 @error('gambar')
@@ -67,7 +67,7 @@
                                 <label for="lulusan" class="form-label">Universitas Lulusan <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-mortarboard-fill"></i></span>
-                                    <input type="text" class="form-control" id="lulusan" value="{{ $id ? $dokter->lulusan : old('lulusan') }}" name="lulusan" placeholder="Contoh: Universitas Indonesia" required>
+                                    <input type="text" class="form-control" id="lulusan" value="{{ $id ? $psikolog->lulusan : old('lulusan') }}" name="lulusan" placeholder="Contoh: Universitas Indonesia" required>
                                     @error('lulusan')
                                     <div class="text-danger mt-1">
                                         <small>{{ $message }}</small>
@@ -81,7 +81,7 @@
                                 <label for="tahun_lulus" class="form-label">Tahun Lulus <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-calendar2-check-fill"></i></span>
-                                    <input type="number" class="form-control" id="tahun_lulus" value="{{ $id ? $dokter->tahun_lulus : old('tahun_lulus') }}" name="tahun_lulus" placeholder="Contoh: 2020" min="1900" max="{{ date('Y') }}" required>
+                                    <input type="number" class="form-control" id="tahun_lulus" value="{{ $id ? $psikolog->tahun_lulus : old('tahun_lulus') }}" name="tahun_lulus" placeholder="Contoh: 2020" min="1900" max="{{ date('Y') }}" required>
                                     @error('tahun_lulus')
                                     <div class="text-danger mt-1">
                                         <small>{{ $message }}</small>
@@ -96,7 +96,7 @@
                                 <select class="form-select" id="spesialis_id" name="spesialis_id" required>
                                     {{ $id ? '' : '<option value="" selected disabled>Pilih spesialisasi</option>' }}
                                     @foreach ($spesialis as $sp )
-                                    <option value="{{ $sp->id }}" {{ $id && $sp->id == $dokter->spesialis_id ? 'selected' : ''}}>{{ $sp->spesialis }}</option>
+                                    <option value="{{ $sp->id }}" {{ $id && $sp->id == $psikolog->spesialis_id ? 'selected' : ''}}>{{ $sp->spesialis }}</option>
                                     @endforeach
                                 </select>
                                 @error('spesialis_id')
@@ -111,7 +111,7 @@
                                 <button type="submit" class="btn btn-primary btn-lg">
                                     <i class="bi bi-save-fill"></i> Simpan
                                 </button>
-                                <a href="{{ route('admin.manage-doctor') }}" class="btn btn-outline-secondary btn-lg">
+                                <a href="{{ route('admin.manage-psikolog') }}" class="btn btn-outline-secondary btn-lg">
                                     <i class="bi bi-arrow-left-circle-fill"></i> Kembali
                                 </a>
                             </div>

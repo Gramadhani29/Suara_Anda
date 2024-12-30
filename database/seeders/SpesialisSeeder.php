@@ -13,13 +13,16 @@ class SpesialisSeeder extends Seeder
     public function run(): void
     {
         SpesialisModel::create([
-            'spesialis' => 'Dokter Umum',
+            'spesialis' => 'Industri dan Organisasi ',
         ]);
         SpesialisModel::create([
-            'spesialis' => 'Dokter Gigi',
+            'spesialis' => 'Klinis',
         ]);
         SpesialisModel::create([
-            'spesialis' => 'Dokter Anak',
+            'spesialis' => 'Psikoterapi ',
+        ]);
+        SpesialisModel::create([
+            'spesialis' => 'Perkembangan  ',
         ]);
     }
 }
