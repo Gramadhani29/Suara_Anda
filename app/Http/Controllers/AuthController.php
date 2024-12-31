@@ -79,8 +79,4 @@ class AuthController extends Controller
 
         return redirect('/login')->with('success', 'Berhasil logout.');
     }
-
-    public function adminDashboard(){
-        return view('admin.dashboard');
-    }
 }
