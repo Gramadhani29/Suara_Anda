@@ -1,0 +1,39 @@
+/* CSS khusus untuk halaman artikel */
+#artikel-page .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Sesuaikan lebar sidebar */
+    height: 100%;
+    background-color: #2C3E50;
+    padding: 20px;
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#artikel-page .sidebar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+#artikel-page .sidebar a:hover {
+    background-color: #34495E;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Atur kontainer utama untuk artikel */
+#artikel-page .content-container {
+    margin-left: 270px; /* Tambahkan margin agar tidak tertutup sidebar */
+    padding: 20px;
+}
+
+#artikel-page .table {
+    margin-top: 20px;
+}
+
+#artikel-page .btn-tambah {
+    margin-bottom: 20px;
+}
