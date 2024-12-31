@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoktorController;
 use App\Http\Controllers\PsikologController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PDFController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -35,4 +37,10 @@ Route::get('/admin/manage-psikolog/{id}/edit-jadwal/{id_jadwal}',[JadwalControll
 Route::put('/admin/manage-psikolog/{id}/update-jadwal/{id_jadwal}',[JadwalController::class,'update'])->name('admin.update-jadwal');
 
 // For User
-Route::get('/user/manage-psikolog',[psikologController::class,'index'])->name('user.manage-psikolog');
+Route::get('/user/list-psikolog',[BookingController::class,'listPsikolog'])->name('user.list-psikolog');
+Route::get('/user/list-psikolog/{id}/form-booking',[BookingController::class,'formBooking'])->name('user.form-booking');
+Route::post('/user/list-psikolog/{id}/store-booking',[BookingController::class,'storeBooking'])->name('user.store-booking');
+Route::get('/user/my-booking',[BookingController::class,'myBooking'])->name('user.my-booking');
+Route::delete('/user/delete-booking/{id}',[BookingController::class,'destroyBooking'])->name('user.delete-booking');
+
+Route::post('/user/generate-my-booking',[PDFController::class,'generateMyBookings'])->name('user.generate-my-booking');
