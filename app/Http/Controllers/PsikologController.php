@@ -11,7 +11,7 @@ class PsikologController extends Controller
 {
     public function index()
     {
-        $data = PsikologModel::with('spesialis')->paginate(12);
+        $data = PsikologModel::with('spesialis')->get();
         return view('admin.psikolog.index', compact('data'));
     }
 
@@ -115,7 +115,6 @@ class PsikologController extends Controller
         }
 
     }
-
     public function destroy($id)
     {
         try {

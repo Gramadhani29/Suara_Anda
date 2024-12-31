@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoktorController;
 use App\Http\Controllers\PsikologController;
+use App\Http\Controllers\JadwalController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -24,3 +25,9 @@ Route::post('/admin/store-psikolog',[PsikologController::class,'store'])->name('
 Route::delete('/admin/delete-psikolog/{id}',[PsikologController::class,'destroy'])->name('admin.delete-psikolog');
 Route::get('/admin/edit-psikolog/{id}',[PsikologController::class,'edit'])->name('admin.edit-psikolog');
 Route::put('/admin/update-psikolog/{id}',[PsikologController::class,'update'])->name('admin.update-psikolog');
+
+Route::get('admin/manage-doktor/{id}/jadwal',[JadwalController::class,'index'])->name('admin.manage-jadwal');
+Route::get('admin/manage-doktor/{id}/form-jadwal',[JadwalController::class,'create'])->name('admin.create-jadwal');
+Route::post('admin/manage-doktor/{id}/store-jadwal',[JadwalController::class,'store'])->name('admin.store-jadwal');
+Route::delete('/admin/manage-doktor/{id}/delete-jadwal/{id_jadwal}',[JadwalController::class,'destroy'])->name('admin.delete-jadwal');
+Route::get('/admin/manage-doktor/{id}/edit-jadwal/{id_jadwal}',[JadwalController::class,'edit'])->name('admin.edit-jadwal');

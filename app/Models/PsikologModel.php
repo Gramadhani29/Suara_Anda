@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PsikologModel extends Model
 {
@@ -18,5 +19,11 @@ class PsikologModel extends Model
     public function spesialis(): HasOne
     {
         return $this->hasOne(SpesialisModel::class, 'id', 'spesialis_id');
+    }
+
+
+    public function jadwal(): HasMany
+    {
+        return $this->hasMany(JadwalModel::class, 'psikolog_id', 'id');
     }
 }

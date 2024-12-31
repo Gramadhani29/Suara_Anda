@@ -94,7 +94,7 @@
                             <div class="mb-4">
                                 <label for="spesialis_id" class="form-label">Spesialisasi <span class="text-danger">*</span></label>
                                 <select class="form-select" id="spesialis_id" name="spesialis_id" required>
-                                    {{ $id ? '' : '<option value="" selected disabled>Pilih spesialisasi</option>' }}
+                                    <option value="" {{$id ? 'disabled' : 'selected'}}>Pilih spesialisasi</option>
                                     @foreach ($spesialis as $sp )
                                     <option value="{{ $sp->id }}" {{ $id && $sp->id == $psikolog->spesialis_id ? 'selected' : ''}}>{{ $sp->spesialis }}</option>
                                     @endforeach
