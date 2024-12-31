@@ -66,7 +66,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
-                            <a href="/admin/manage-doktor/{{ $psikolog->id }}/jadwal" class="btn btn-sm btn-info">Jadwal</a>
+                            <a href="/admin/manage-psikolog/{{ $psikolog->id }}/jadwal" class="btn btn-sm btn-info">Jadwal</a>
                         </td>
                     </tr>
                     @endforeach
