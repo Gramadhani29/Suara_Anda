@@ -1,4 +1,4 @@
-@extends('user.layouts-user.app')  <!-- Menggunakan layout utama -->
+@extends('layouts.app')  <!-- Menggunakan layout utama -->
 
 @section('title', 'Daftar Artikel')  <!-- Menentukan judul halaman -->
 
