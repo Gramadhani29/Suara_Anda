@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class JadwalModel extends Model
 {
     protected $table = 'jadwal';
@@ -15,4 +16,5 @@ class JadwalModel extends Model
         'jam_selesai',
     ];
 
+    public $timestamps = true;
 }

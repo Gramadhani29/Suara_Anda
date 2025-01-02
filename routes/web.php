@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoktorController;
 use App\Http\Controllers\PsikologController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PDFController;
 
 // Rute untuk halaman utama dan login
 Route::get('/', function () {
@@ -36,6 +38,7 @@ Route::get('/user/artikel/{id}', [UserController::class, 'artikeldetail'])->name
 // Rute untuk admin dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+// For Admin
 Route::get('/admin/manage-psikolog',[PsikologController::class,'index'])->name('admin.manage-psikolog');
 Route::get('/admin/form-psikolog',[PsikologController::class,'create'])->name('admin.create-psikolog');
 Route::post('/admin/store-psikolog',[PsikologController::class,'store'])->name('admin.store-psikolog');
@@ -43,8 +46,18 @@ Route::delete('/admin/delete-psikolog/{id}',[PsikologController::class,'destroy'
 Route::get('/admin/edit-psikolog/{id}',[PsikologController::class,'edit'])->name('admin.edit-psikolog');
 Route::put('/admin/update-psikolog/{id}',[PsikologController::class,'update'])->name('admin.update-psikolog');
 
-Route::get('admin/manage-doktor/{id}/jadwal',[JadwalController::class,'index'])->name('admin.manage-jadwal');
-Route::get('admin/manage-doktor/{id}/form-jadwal',[JadwalController::class,'create'])->name('admin.create-jadwal');
-Route::post('admin/manage-doktor/{id}/store-jadwal',[JadwalController::class,'store'])->name('admin.store-jadwal');
-Route::delete('/admin/manage-doktor/{id}/delete-jadwal/{id_jadwal}',[JadwalController::class,'destroy'])->name('admin.delete-jadwal');
-Route::get('/admin/manage-doktor/{id}/edit-jadwal/{id_jadwal}',[JadwalController::class,'edit'])->name('admin.edit-jadwal');
+Route::get('admin/manage-psikolog/{id}/jadwal',[JadwalController::class,'index'])->name('admin.manage-jadwal');
+Route::get('admin/manage-psikolog/{id}/form-jadwal',[JadwalController::class,'create'])->name('admin.create-jadwal');
+Route::post('admin/manage-psikolog/{id}/store-jadwal',[JadwalController::class,'store'])->name('admin.store-jadwal');
+Route::delete('/admin/manage-psikolog/{id}/delete-jadwal/{id_jadwal}',[JadwalController::class,'destroy'])->name('admin.delete-jadwal');
+Route::get('/admin/manage-psikolog/{id}/edit-jadwal/{id_jadwal}',[JadwalController::class,'edit'])->name('admin.edit-jadwal');
+Route::put('/admin/manage-psikolog/{id}/update-jadwal/{id_jadwal}',[JadwalController::class,'update'])->name('admin.update-jadwal');
+
+// For User
+Route::get('/user/list-psikolog',[BookingController::class,'listPsikolog'])->name('user.list-psikolog');
+Route::get('/user/list-psikolog/{id}/form-booking',[BookingController::class,'formBooking'])->name('user.form-booking');
+Route::post('/user/list-psikolog/{id}/store-booking',[BookingController::class,'storeBooking'])->name('user.store-booking');
+Route::get('/user/my-booking',[BookingController::class,'myBooking'])->name('user.my-booking');
+Route::delete('/user/delete-booking/{id}',[BookingController::class,'destroyBooking'])->name('user.delete-booking');
+
+Route::post('/user/generate-my-booking',[PDFController::class,'generateMyBookings'])->name('user.generate-my-booking');

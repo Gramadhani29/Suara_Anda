@@ -24,7 +24,7 @@
 
         <!-- Button Tambah psikolog -->
         <div class="mb-3">
-            <a href={{"/admin/manage-doktor/$psikolog->id/form-jadwal"}} class="btn btn-primary">Tambah Jadwal</a>
+            <a href={{"/admin/manage-psikolog/$psikolog->id/form-jadwal"}} class="btn btn-primary">Tambah Jadwal</a>
         </div>
 
         <!-- Responsive Table -->
@@ -47,8 +47,8 @@
                         <td>{{ \Carbon\Carbon::createFromFormat('H:i:s', $item->jam_mulai)->format('H:i') }}</td>
                         <td>{{ \Carbon\Carbon::createFromFormat('H:i:s', $item->jam_selesai)->format('H:i') }}</td>
                         <td>
-                            <a href="/admin/manage-doktor/{{ $psikolog->id }}/edit-jadwal/{{ $item->id }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="/admin/manage-doktor/{{ $psikolog->id }}/delete-jadwal/{{ $item->id }}" method="POST">
+                            <a href="/admin/manage-psikolog/{{ $psikolog->id }}/edit-jadwal/{{ $item->id }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="/admin/manage-psikolog/{{ $psikolog->id }}/delete-jadwal/{{ $item->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>

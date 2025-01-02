@@ -25,7 +25,7 @@
                     </div>
                 @endif
                     <div class="card-body">
-                        <form action={{$idJadwal ? "/admin/manage-doktor/$idPsikolog/edit-jadwal/$idJadwal" : "/admin/manage-doktor/$idPsikolog/store-jadwal"}} method="POST" >
+                        <form action={{$idJadwal ? "/admin/manage-psikolog/$idPsikolog/update-jadwal/$idJadwal" : "/admin/manage-psikolog/$idPsikolog/store-jadwal"}} method="POST" >
                             @csrf
                             @if($idJadwal)
                                 @method('PUT')
