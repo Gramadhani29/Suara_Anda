@@ -25,7 +25,7 @@
             <a href="/admin/pengaduan" style="color: white; text-decoration: none;">Pengaduan</a>
         </li>
         <li style="margin: 20px 0; text-align: center;">
-            <a href="/admin/konseling" style="color: white; text-decoration: none;">Konseling</a>
+            <a href="{{ route('admin.manage-psikolog') }}" style="color: white; text-decoration: none;">Konseling</a>
         </li>
     </ul>
     <div style="text-align: center; position: absolute; bottom: 20px; width: 100%;">
