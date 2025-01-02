@@ -32,7 +32,7 @@
     <div class="d-flex">
         <!-- Sidebar -->
         <div class="sidebar bg-dark text-white p-3">
-            @include('layouts.sidebar') <!-- Menyertakan file sidebar.blade.php -->
+            @include('user.layouts-user.sidebar') <!-- Menyertakan file sidebar.blade.php -->
         </div>
 
         <!-- Konten Utama -->
