@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserPengaduanController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminLaporanController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoktorController;
 use App\Http\Controllers\PsikologController;
@@ -56,6 +58,17 @@ Route::get('/admin/artikel/{id}', [AdminController::class, 'show'])->name('admin
 Route::get('/admin/artikel/{id}/edit', [AdminController::class, 'edit'])->name('admin.artikel.edit');
 Route::put('/admin/artikel/{id}', [AdminController::class, 'update'])->name('admin.artikel.update');
 Route::delete('/admin/artikel/{id}', [AdminController::class, 'destroy'])->name('admin.artikel.destroy');
+
+Route::get('/laporan', [UserPengaduanController::class, 'index'])->name('laporan.index');
+Route::get('/laporan/create', [UserPengaduanController::class, 'create'])->name('laporan.create');
+Route::post('/laporan', [UserPengaduanController::class, 'store'])->name('laporan.store');
+Route::get('/laporan/{id}', [UserPengaduanController::class, 'show'])->name('laporan.show');
+Route::delete('/laporan/{id}', [UserPengaduanController::class, 'destroy'])->name('laporan.destroy');
+Route::get('/laporan/{id}/edit', [UserPengaduanController::class, 'edit'])->name('laporan.edit');
+Route::put('/laporan/{id}', [UserPengaduanController::class, 'update'])->name('laporan.update');
+
+Route::get('admin/pengaduan', [AdminLaporanController::class, 'index'])->name('admin.pengaduan.index');
+Route::put('admin/pengaduan/{id}/update-status', [AdminLaporanController::class, 'updateStatus'])->name('admin.pengaduan.updateStatus');
 
 // Rute untuk user dashboard dan artikel
 Route::get('/user/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');

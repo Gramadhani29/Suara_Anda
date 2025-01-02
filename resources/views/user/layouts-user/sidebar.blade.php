@@ -19,7 +19,7 @@
             <a href="{{ route('user.dashboard') }}" style="color: white; text-decoration: none;">Dashboard</a>
         </li>
         <li style="margin: 20px 0; text-align: center;">
-            <a href="/user/pengaduan" style="color: white; text-decoration: none;">Pengaduan</a>
+            <a href="{{ route('laporan.index') }}" style="color: white; text-decoration: none;">Pengaduan</a>
         </li>
         <li style="margin: 20px 0; text-align: center;">
             <a href="{{ route('user.list-psikolog') }}" style="color: white; text-decoration: none;">Konseling</a>

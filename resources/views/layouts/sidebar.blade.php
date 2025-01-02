@@ -22,7 +22,7 @@
             <a href="{{ route('admin.artikel.index') }}" style="color: white; text-decoration: none;">Artikel</a>
         </li>
         <li style="margin: 20px 0; text-align: center;">
-            <a href="/admin/pengaduan" style="color: white; text-decoration: none;">Pengaduan</a>
+            <a href="{{ route('admin.pengaduan.index') }}" style="color: white; text-decoration: none;">Pengaduan</a>
         </li>
         <li style="margin: 20px 0; text-align: center;">
             <a href="{{ route('admin.manage-psikolog') }}" style="color: white; text-decoration: none;">Konseling</a>
